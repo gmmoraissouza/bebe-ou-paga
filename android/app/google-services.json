@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "975527299882",
+    "project_id": "bebe-ou-paga-gmms",
+    "storage_bucket": "bebe-ou-paga-gmms.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975527299882:android:a4103b06a62544a122ac53",
+        "android_client_info": {
+          "package_name": "com.gmms.bebeoupaga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975527299882-het4o6r00f28k7b17mcshsva5l73s6ou.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAthLegg3-JBIsXkaVgVje9oMfgQt-KF_M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975527299882-het4o6r00f28k7b17mcshsva5l73s6ou.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
