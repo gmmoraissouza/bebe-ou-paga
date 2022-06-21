@@ -1,5 +1,6 @@
-import 'package:bebe_ou_paga/utils/theme.dart';
 import 'package:flutter/material.dart';
+
+import '../utils/constants.dart';
 
 class ButtonGame extends StatelessWidget {
   const ButtonGame(
@@ -15,7 +16,7 @@ class ButtonGame extends StatelessWidget {
         height: 60,
         child: ElevatedButton(
             onPressed: onPressed,
-            child: Text(text, style: styleLetterW,)
+            child: Text(text, style: headingStyle,),
         )
     );
   }

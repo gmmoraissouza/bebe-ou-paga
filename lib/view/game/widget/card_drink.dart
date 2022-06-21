@@ -1,60 +1,34 @@
-import 'dart:math';
-
-import 'package:bebe_ou_paga/utils/theme.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class CardDrink extends StatelessWidget {
-  final String text;
+import '../../../utils/constants.dart';
 
-  CardDrink({Key? key, required this.text})
+class CardDrink extends StatelessWidget {
+  final String text, desafio, qtd;
+
+  const CardDrink({Key? key, required this.text, required this.desafio, required this.qtd})
       : super(key: key);
-  final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
-    CollectionReference desafio = firestore.collection('basics');
-    var numero = Random().nextInt(63);
-
-
     return
         Container(
           width: MediaQuery.of(context).size.width,
           height: 400,
           decoration: BoxDecoration(
-            color: Colors.cyan,
+            color: Colors.grey,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
-                FutureBuilder<DocumentSnapshot>(
-                  future: desafio.doc('$numero').get(),
-                  builder: (BuildContext context,
-                      AsyncSnapshot<DocumentSnapshot> snapshot) {
-                    if (snapshot.hasError) {
-                      return const Text("ERROR - Feche a abra o jogo");
-                    }
-
-                    if (snapshot.hasData && !snapshot.data!.exists) {
-                      return const Text("Sem desafio pra você. Próximo!");
-                    }
-
-                    if (snapshot.connectionState == ConnectionState.done) {
-                      Map<String, dynamic> data =
-                          snapshot.data!.data() as Map<String, dynamic>;
-                      return Text(data['desafio'], style: styleDesafio,);
-                    }
-
-                    return const CircularProgressIndicator();
-                  },
-                ),
+                Text(desafio,
+                    style: headingStyle),
                 const Divider(color: Colors.black),
                 const Spacer(),
                 const Text(
-                  "Conselho pra sua vida ruim:",
-                  style: styleLetter,
+                  "Conselho via API:",
+                  style: headingStyle,
                 ),
                 Text(text,
                     style: const TextStyle(
@@ -65,23 +39,14 @@ class CardDrink extends StatelessWidget {
                 const Spacer(),
                 const Divider(color: Colors.black),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    FutureBuilder<DocumentSnapshot>(
-                      future: desafio.doc('$numero').get(),
-                      builder: (BuildContext context,
-                          AsyncSnapshot<DocumentSnapshot> snapshot) {
-                        if (snapshot.connectionState == ConnectionState.done) {
-                          Map<String, dynamic> data =
-                          snapshot.data!.data() as Map<String, dynamic>;
-                          return Text("ou beba: " + data['qtd'].toString(), style: styleLetter,);
-                        }
-
-                        return const Text('carregando..');
-                      },
+                    Text('ou beba: ' + qtd,
+                        style: headingStyle
                     ),
-                    const Icon(Icons.local_drink),
+                    const Icon(Icons.local_drink)
                   ],
-                ),
+                )
               ],
             ),
           ),

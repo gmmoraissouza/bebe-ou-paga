@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
-const styleLetter = TextStyle(
-  fontSize: 20,
-  fontWeight: FontWeight.w500,
-);
+ThemeData theme() {
+  return ThemeData(
+    scaffoldBackgroundColor: kPrimaryColor,
+    fontFamily: "Muli",
+    primarySwatch: Colors.grey,
+    primaryColor: kPrimaryColor,
+    textTheme: textTheme(),
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+  );
+}
 
-const styleLetterW = TextStyle(
-  color: Colors.white,
-  fontSize: 20,
-  fontWeight: FontWeight.w500,
-);
+TextTheme textTheme() {
+  return const TextTheme(
+      bodyText1: TextStyle(color: kTextColor),
+      bodyText2: TextStyle(color: kTextColor));
+}
 
-const styleRules = TextStyle(
-  fontSize: 17,
-);
-
-const styleDesafio = TextStyle(
-  fontSize: 30,
-  fontWeight: FontWeight.w500,
-);
