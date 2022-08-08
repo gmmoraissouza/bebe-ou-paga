@@ -1,3 +1,3 @@
-# bebe_ou_paga
+# Bebe ou Paga
 
-Projeto de faculdade de um jogo chamado Bebe ou Paga.
+Projeto de faculdade de um jogo para celular.
